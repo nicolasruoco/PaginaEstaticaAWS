@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Deploy
         run: |
-          echo "${{secrets.key}}" > private_key && chmod 777 private_key
+          echo "${{secrets.key}}" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i "private_key" ubuntu@ec2-98-83-156-176.compute-1.amazonaws.com "
             cd /var/www/html/PaginaEstaticaAWS && 
             sudo git pull "
